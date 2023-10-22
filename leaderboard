@@ -12,8 +12,8 @@ Console
             let response = await fetch(leaderboardUrl);
             let jsonData = await response.json();
 
-            // Generate a timestamp for the file name
-            let timestamp = Math.floor(new Date().getTime() / 1000);
+            // Generate a timestamp for the file name using iterationId
+            let timestamp = iterationId;
 
             // Convert JSON data to string
             let jsonString = JSON.stringify(jsonData, null, 2);
