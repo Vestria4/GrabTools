@@ -1,0 +1,15 @@
+Console
+javascript:(async () => {
+    try {
+        let response = await fetch('https://api.slin.dev/grab/v1/total_level_count?type=ok');
+        if (response.ok) {
+            let totalLevelCount = await response.text();
+            alert(`Total Verified Count: ${totalLevelCount}`);
+        } else {
+            alert('Failed to fetch total level count.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to fetch total level count. Check the console for more information.');
+    }
+})();
