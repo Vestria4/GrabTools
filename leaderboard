@@ -1,3 +1,6 @@
+Bookmark Bar
+javascript:(async () => {async function download() {let originalUrl = window.location.href;let levelId = originalUrl.match(/level=([^&:]+)/)[1];let iterationId = originalUrl.match(/:(\d+)/)[1];let leaderboardUrl = `https://api.slin.dev/grab/v1/statistics_top_leaderboard/${levelId}/${iterationId}`;try {let response = await fetch(leaderboardUrl);let jsonData = await response.json();let timestamp = iterationId;let jsonString = JSON.stringify(jsonData, null, 2);let blob = new Blob([jsonString], { type: 'text/plain' });let url = window.URL.createObjectURL(blob);let a = document.createElement('a');a.href = url;a.download = `${timestamp}_leaderboard.txt`;document.body.appendChild(a);a.click();window.URL.revokeObjectURL(url);} catch (error) {console.error('Error:', error);alert('Failed to download leaderboard data. Check the console for more information.');}}await download();})();
+
 Console
 (async () => {
     async function download() {
