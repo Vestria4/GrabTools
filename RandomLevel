@@ -1,3 +1,4 @@
+Console
 javascript:(async () => {
     try {
         // Fetch random level data from the API
